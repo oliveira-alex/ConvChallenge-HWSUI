@@ -28,6 +28,12 @@ struct ContentView: View {
 				Section {
 					TextField("Length", text: $length)
 						.keyboardType(.decimalPad)
+						.onChange(of: inputUnit) { _ in
+							UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+						}
+						.onChange(of: outputUnit) { _ in
+							UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+						}
 				}
 				
 				Section(header: Text("Input Unit")) {
