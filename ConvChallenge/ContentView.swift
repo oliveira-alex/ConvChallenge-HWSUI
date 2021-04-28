@@ -39,7 +39,7 @@ struct ContentView: View {
 				Section(header: Text("Input Unit")) {
 					Picker("Input Unit", selection: $inputUnit) {
 						ForEach(0 ..< units.count) {
-							Text(self.unitsNames[$0]).tag(self.units[$0])
+							Text(self.unitsNames[$0]).tag(self.units[$0])  // UnitLength doesn't conform to StringProtocol, so here strings show the name of the units which are selected using tags with the corresponding UnitLength unit
 						}
 					}
 					.pickerStyle(SegmentedPickerStyle())
